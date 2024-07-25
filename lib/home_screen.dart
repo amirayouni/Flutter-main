@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hr_management_app/worker_details_screen.dart';
-import 'package:hr_management_app/request_form.dart'; // Ensure this import is correct
-import 'package:hr_management_app/login_screen.dart'; // Ensure you have a login_page.dart
+import 'package:hr_management_app/request_form.dart';
+import 'package:hr_management_app/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,192 +16,185 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Today",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              "Good Morning, Dear",
-                              style: TextStyle(
-                                color: Colors.black38,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.blueAccent,
-                            image: DecorationImage(
-                              image: AssetImage("assets/user1.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: SizedBox(
-                      height: 50,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          enabled: false,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: Icon(
-                            Feather.search,
-                            color: Colors.black,
-                            size: 25,
-                          ),
-                          fillColor: Colors.grey[200],
-                          filled: true,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      "Departments",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  SizedBox(
-                    height: 120,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        SizedBox(width: 20),
-                        departmentCard(
-                          "Development",
-                          88,
-                          "techies",
-                          Colors.blueAccent,
-                          "💻",
-                        ),
-                        departmentCard(
-                          "UI/UX Design",
-                          45,
-                          "creatives",
-                          Colors.orangeAccent,
-                          "🎨",
-                        ),
-                        departmentCard(
-                          "QA Engineers",
-                          24,
-                          "helpers",
-                          Colors.redAccent,
-                          "💻",
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      "You recently worked with",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  ListView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    children: [
-                      usersWokredWith(
-                        "Zeid Ayouni",
-                        "assets/user2.jpg",
-                        Colors.blueAccent,
-                        "Frontend Developer",
-                      ),
-                      usersWokredWith(
-                        "Amir Ayouni",
-                        "assets/user3.jpg",
-                        Colors.redAccent,
-                        "QA Assistant",
-                      ),
-                      usersWokredWith(
-                        "Aziz Ayouni",
-                        "assets/user4.jpg",
-                        Colors.orangeAccent,
-                        "UI/UX Designer",
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                      height: 70), // To ensure there's space for the fixed box
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: Colors.orange,
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(
-                      icon: Icon(Icons.logout, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  LoginScreen()), // Ensure you have a LoginPage
-                        );
-                      },
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Today",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Good Morning, Dear",
+                                style: TextStyle(
+                                  color: Colors.black38,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.blueAccent,
+                              image: DecorationImage(
+                                image: AssetImage("assets/user1.jpg"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.add_circle, color: Colors.white),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  RequestPage()), // Use RequestPage
-                        );
-                      },
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: SizedBox(
+                        height: 50,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            enabled: false,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide.none,
+                            ),
+                            prefixIcon: Icon(
+                              Feather.search,
+                              color: Colors.black,
+                              size: 25,
+                            ),
+                            fillColor: Colors.grey[200],
+                            filled: true,
+                          ),
+                        ),
+                      ),
                     ),
+                    SizedBox(height: 30),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "Departments",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    SizedBox(
+                      height: 120,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          SizedBox(width: 20),
+                          departmentCard(
+                            "Development",
+                            88,
+                            "techies",
+                            Colors.blueAccent,
+                            "💻",
+                          ),
+                          departmentCard(
+                            "UI/UX Design",
+                            45,
+                            "creatives",
+                            Colors.orangeAccent,
+                            "🎨",
+                          ),
+                          departmentCard(
+                            "QA Engineers",
+                            24,
+                            "helpers",
+                            Colors.redAccent,
+                            "💻",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "You recently worked with",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          usersWokredWith(
+                            "Zeid Ayouni",
+                            "assets/user2.jpg",
+                            Colors.blueAccent,
+                            "Frontend Developer",
+                          ),
+                          usersWokredWith(
+                            "Amir Ayouni",
+                            "assets/user3.jpg",
+                            Colors.redAccent,
+                            "QA Assistant",
+                          ),
+                          usersWokredWith(
+                            "Aziz Ayouni",
+                            "assets/user4.jpg",
+                            Colors.orangeAccent,
+                            "UI/UX Designer",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 70), // Space to ensure scrolling works
                   ],
                 ),
+              ),
+            ),
+            Container(
+              color: Colors.orange,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.logout, color: Colors.white),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.add_circle, color: Colors.white),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RequestPage()),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ],
@@ -304,6 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           color: color.withOpacity(0.2),
           borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Colors.grey.withOpacity(0.5)),
         ),
         child: Padding(
           padding: EdgeInsets.all(15),
@@ -331,12 +325,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Text(
-                number.toString() + " " + title,
+                "$number $title",
                 style: TextStyle(
+                  fontSize: 14,
                   color: Colors.black54,
                 ),
               ),

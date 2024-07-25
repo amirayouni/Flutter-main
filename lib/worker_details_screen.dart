@@ -178,6 +178,10 @@ class WorkerDetailsScreen extends StatelessWidget {
                           name,
                           "General",
                           "Shows exceptional productivity and often goes above and beyond the expected workload.",
+                          onAddCourse: () {
+                            // Add your logic to handle adding a course
+                            _showAddCourseDialog(context);
+                          },
                         ),
                         SizedBox(height: 20),
                         lastUpdates(
@@ -197,7 +201,8 @@ class WorkerDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget lastUpdates(String name, String title, String desc) {
+  Widget lastUpdates(String name, String title, String desc,
+      {VoidCallback? onAddCourse}) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -224,9 +229,42 @@ class WorkerDetailsScreen extends StatelessWidget {
                 fontSize: 12,
               ),
             ),
+            SizedBox(height: 10),
+            if (onAddCourse != null)
+              ElevatedButton(
+                onPressed: onAddCourse,
+                child: Text('Add Course'),
+              ),
           ],
         ),
       ),
+    );
+  }
+
+  void _showAddCourseDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Add Course'),
+          content: Text('Here you can add course details.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Add'),
+              onPressed: () {
+                // Add course logic
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 

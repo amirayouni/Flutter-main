@@ -15,6 +15,7 @@ dependencies:
   flutter_vector_icons: ^2.0.0
   sqflite: any
   path: any
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
